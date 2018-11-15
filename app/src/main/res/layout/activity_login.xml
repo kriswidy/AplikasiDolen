@@ -9,18 +9,79 @@
 
 
     <TextView
-        android:id="@+id/textLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:gravity="center"
         android:textSize="30sp"
+        android:textStyle="bold"
         android:text="Login" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
         android:text="Email dan Username"
         android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="email / username" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:text="Password"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="password" />
+
+    <CheckBox
+        android:id="@+id/checkBoxIngatSaya"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:text="Ingat Saya!" />
+
+    <Button
+        android:id="@+id/buttonYuk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="15dp"
+        android:text="Yuk!" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Belum Punya akun? Daftar"
+        android:textSize="18dp" />
+
+
+
 </LinearLayout>
