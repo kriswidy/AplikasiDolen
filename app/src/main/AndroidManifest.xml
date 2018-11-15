@@ -22,11 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
         <activity android:name=".RegisterActivity"></activity>
-=======
         <activity android:name=".LoginActivity"></activity>
->>>>>>> 26ec5c5b49b19ac1b0d3d8b462f24f14b3d1b1e7
     </application>
 
 </manifest>
