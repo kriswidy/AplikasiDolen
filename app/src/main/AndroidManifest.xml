@@ -29,11 +29,16 @@
         <activity android:name=".DetailWisataActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+<<<<<<< HEAD
 
         </activity>
+=======
+        </activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
+>>>>>>> f6d19b937c0ef3d46c9dcb1c0964f00c1a6193e8
     </application>
 
 </manifest>
