@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
         //getActionBar().hide();
         username = findViewById(R.id.editTextPassword);
         password = findViewById(R.id.editTextPassword);
-        btnLogin = findViewById(R.id.buttonYuk);
+        btnLogin = findViewById(R.id.btnMasuk);
 //        getActionBar().hide();
 
     }

@@ -20,13 +20,14 @@
 
     <Button
         android:id="@+id/buttonDaftar"
-        android:layout_width="700px"
+        android:layout_width="278dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="18dp"
         android:background="@drawable/btn_shape1"
         android:text="Daftar"
+        android:textSize="8pt"
         android:textColor="@color/colorWhite" />
 
     <TextView
@@ -36,16 +37,18 @@
         android:layout_above="@+id/buttonMasuk"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:text="- atau -" />
+        android:text="Sudah punya akun?"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/buttonMasuk"
-        android:layout_width="700px"
+        android:layout_width="278dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="45dp"
         android:background="@drawable/btn_shape2"
+        android:textSize="8pt"
         android:text="Masuk"
         android:textColor="@color/colorWhite" />
 

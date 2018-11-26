@@ -8,6 +8,7 @@
     tools:context=".RegisterActivity">
 
     <ImageView
+        android:id="@+id/btnBackDaftar"
         android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +17,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:text="Daftar"
         android:gravity="center"
         android:textSize="30dp"/>
@@ -79,20 +80,17 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/btn_shape2"
+        android:background="@drawable/btn_shape1"
         android:textColor="@color/colorWhite"
         android:textSize="18dp"
         android:text="Daftar" />
 
     <TextView
-        android:id="@+id/lbPunyakaun"
+        android:id="@+id/lbPunyaakun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="110dp"
         android:layout_marginTop="20dp"
         android:text="Sudah Punya Akun? Login" />
-
-
-
 
 </LinearLayout>
