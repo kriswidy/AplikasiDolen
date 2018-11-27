@@ -1,5 +1,7 @@
 package com.example.android.ayodolen;
 
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,8 +19,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //getActionBar().hide();
-        username = findViewById(R.id.editTextPassword);
+        username = findViewById(R.id.editTextUsername);
         password = findViewById(R.id.editTextPassword);
+//        getActionBar().hide();
+
         btnLogin = findViewById(R.id.buttonYuk);
 //        getActionBar().hide();
 
@@ -29,6 +33,5 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
 }
