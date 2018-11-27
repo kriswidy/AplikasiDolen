@@ -24,11 +24,7 @@
         android:textColor="@color/colorBlack"
         android:shadowColor="@color/colorGraySoLight"
         android:textSize="33dp"
-        android:textStyle="bold"/>]
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/editTextUsername"
@@ -52,8 +48,6 @@
             android:inputType="textPersonName"
             android:hint="@string/hint_password" />
 
-    </android.support.design.widget.TextInputLayout>
-
     <CheckBox
         android:id="@+id/checkBoxIngatSaya"
         android:layout_width="match_parent"
@@ -64,7 +58,7 @@
         android:text="Ingat Saya!" />
 
     <Button
-        android:id="@+id/btnMasuk"
+        android:id="@+id/buttonYuk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
