@@ -6,6 +6,12 @@
     <color name="colorWhite">#FFFF</color>
     <color name="colorGreen">#4caf50</color>
     <color name="colorBlack">#212121</color>
+    <color name="colorYellow">#fdcb6e</color>
+    <color name="colorBlue">#0984e3</color>
+    <color name="colorAccentLama">#FF4081</color>
+    <color name="colorLightGray">#636e72</color>
+    <color name="colorLightBlue">#74b9ff</color>
+    <color name="colorDarkGray">#2d3436</color>
 
 
 </resources>
