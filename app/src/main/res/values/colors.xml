@@ -12,6 +12,7 @@
     <color name="colorLightGray">#636e72</color>
     <color name="colorLightBlue">#74b9ff</color>
     <color name="colorDarkGray">#2d3436</color>
+    <color name="colorGraySoLight">#dfe6e9</color>
 
 
 </resources>

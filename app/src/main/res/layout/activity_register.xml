@@ -9,18 +9,21 @@
 
     <ImageView
         android:id="@+id/btnBackDaftar"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/back1" />
+        app:srcCompat="?android:attr/homeAsUpIndicator" />
 
     <TextView
+        android:id="@+id/tvDaftar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="Daftar"
         android:gravity="center"
-        android:textSize="30dp"/>
+        android:textColor="@color/colorBlack"
+        android:shadowColor="@color/colorGraySoLight"
+        android:textSize="33dp"
+        android:textStyle="bold"/>
 
     <!--<TextView-->
         <!--android:layout_width="wrap_content"-->
@@ -35,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:hint="Email"
         android:inputType="text" />
 

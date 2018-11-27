@@ -6,13 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.ayodolen.ProfilActivity"
+    android:background="@color/colorPrimary"
     >
 
     <ImageView
+        android:id="@+id/imgBackgroundProfil"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/background" />
+        android:src="@drawable/bgmalang" />
 
     <ImageView
         android:id="@+id/imageProfil"
@@ -22,21 +24,37 @@
         android:cropToPadding="false"
         app:srcCompat="@drawable/profileicon"
         android:layout_marginTop="25mm"
-        android:layout_marginLeft="120dp"/>
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selamat Datang,"
+        android:textSize="10pt"
+        android:textStyle="bold"
+        android:textColor="@color/colorGraySoLight"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageProfil"
+        android:layout_marginTop="30dp"
+        />
 
     <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:text="yahuyagaming@gmail.com"
-        android:layout_below="@+id/imageProfil"
-        android:layout_margin="50dp"
+        android:layout_below="@+id/tvWelcome"
+        android:textColor="@color/colorGraySoLight"
+        android:textStyle="bold"
+        android:textSize="10pt"
         />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnKeluar"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_shape3"
