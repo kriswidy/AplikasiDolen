@@ -15,11 +15,12 @@ import com.example.android.ayodolen.R;
  */
 
 public class ProfileFragment extends Fragment {
-
+    View v;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_profile,container,false);
+        v = inflater.inflate(R.layout.fragment_profile,container,false);
+        return v;
     }
 
 
