@@ -28,8 +28,8 @@ public class DetailWisataActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),KategoriActivity.class);
-                startActivity(i);
+//                Intent i = new Intent(getApplicationContext(),KategoriActivity.class);
+//                startActivity(i);
                 finish();
             }
         });

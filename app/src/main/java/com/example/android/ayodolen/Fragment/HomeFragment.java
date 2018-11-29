@@ -58,8 +58,7 @@ public class HomeFragment extends Fragment {
 
         for(int i=0; i<3; i++){
             FlipperView fv = new FlipperView(getActivity().getBaseContext());
-            fv.setImageUrl(url[i])
-                    .setDescription("Image"+(i+1));
+            fv.setImageUrl(url[i]);
             flipper.addFlipperView(fv);
         }
     }

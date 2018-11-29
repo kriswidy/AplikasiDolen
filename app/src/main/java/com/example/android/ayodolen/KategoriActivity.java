@@ -18,7 +18,7 @@ public class KategoriActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<String> wisata;
+    private List<String> wisata;
 
 
     @Override

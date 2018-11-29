@@ -7,24 +7,29 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.ayodolen.DetailWisataActivity;
+import com.example.android.ayodolen.Model.Wisata;
 import com.example.android.ayodolen.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerAdapterWisata extends RecyclerView.Adapter<RecyclerAdapterWisata.MyViewHolder> {
+public class RecyclerAdapterWisata extends RecyclerView.Adapter<RecyclerAdapterWisata.MyViewHolder> implements Filterable {
 
-    private ArrayList<String> wisata;
+    private List<String> wisata;
+    private List<String>  wisataFull;
     private Context mContext;
 
 
-    public RecyclerAdapterWisata(ArrayList<String> wisata, Context mContext) {
+    public RecyclerAdapterWisata(List<String> wisata, Context mContext) {
         this.wisata = wisata;
         this.mContext = mContext;
+        wisataFull = new ArrayList<>(wisata);
     }
 
     @NonNull
@@ -54,6 +59,43 @@ public class RecyclerAdapterWisata extends RecyclerView.Adapter<RecyclerAdapterW
         return wisata.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return WisataFilter;
+    }
+
+    private Filter WisataFilter = new Filter(){
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<String> filterWisata = new ArrayList<>();
+
+            if(charSequence == null || charSequence.length() == 0){
+                filterWisata.addAll(wisataFull);
+            }else{
+                String textfilter = charSequence.toString().toLowerCase().trim();
+                for (String w : wisataFull){
+                    if(w.toString().toLowerCase().contains(textfilter)){
+                        filterWisata.add(w);
+                    }
+                }
+
+            }
+            FilterResults results = new FilterResults();
+            results.values = filterWisata;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            wisata.clear();
+            wisata.addAll((List) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
+
+
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView img;
         TextView namaWisata;
@@ -64,4 +106,6 @@ public class RecyclerAdapterWisata extends RecyclerView.Adapter<RecyclerAdapterW
             namaWisata = itemView.findViewById(R.id.tvGridWisata);
         }
     }
+
+
 }
