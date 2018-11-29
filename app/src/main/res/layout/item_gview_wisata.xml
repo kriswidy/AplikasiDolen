@@ -27,7 +27,7 @@
             android:layout_below="@id/imgGridWisata"
             android:textStyle="bold"
             android:textSize="18dp"
-            android:text="Gunung"/>
+            android:text="Gunung Arjuna"/>
 
     </RelativeLayout>
 
