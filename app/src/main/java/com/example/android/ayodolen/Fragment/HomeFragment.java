@@ -1,5 +1,6 @@
 package com.example.android.ayodolen.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,6 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.example.android.ayodolen.KategoriActivity;
 import com.example.android.ayodolen.R;
 
 import technolifestyle.com.imageslider.FlipperLayout;
@@ -25,10 +29,24 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home,container,false);
         flipper = view.findViewById(R.id.flipper);
 
+        Button btna = view.findViewById(R.id.btnPantai);
+
+
+        btna.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), KategoriActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
         setLayout();
 
         return view;
     }
+
+
 
     private void setLayout(){
         String url [] = new String[]{
