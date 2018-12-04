@@ -8,12 +8,19 @@
     tools:context=".LoginActivity">
 
 
-    <ImageView
-        android:id="@+id/btnBackLogin"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_margin="20dp"
-        app:srcCompat="?attr/actionModeCloseDrawable" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarLogin"
+        android:layout_width="match_parent"
+        app:popupTheme="@style/AppTheme.NoActionBar"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/btnBackLogin"-->
+        <!--android:layout_width="35dp"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:layout_margin="20dp"-->
+        <!--app:srcCompat="?attr/actionModeCloseDrawable" />-->
 
     <TextView
         android:id="@+id/tvLogin"
@@ -24,6 +31,7 @@
         android:textColor="@color/colorBlack"
         android:shadowColor="@color/colorGraySoLight"
         android:textSize="33dp"
+        android:layout_marginTop="65dp"
         android:textStyle="bold"/>
 
         <EditText

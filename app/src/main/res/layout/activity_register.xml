@@ -7,12 +7,20 @@
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
-    <ImageView
-        android:id="@+id/btnBackDaftar"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_margin="20dp"
-        app:srcCompat="?android:attr/homeAsUpIndicator" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarRegistrasi"
+        android:layout_width="match_parent"
+        app:popupTheme="@style/AppTheme.NoActionBar"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/btnBackDaftar"-->
+        <!--android:layout_width="35dp"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:layout_margin="20dp"-->
+        <!--app:srcCompat="?android:attr/homeAsUpIndicator" />-->
 
     <TextView
         android:id="@+id/tvDaftar"
@@ -23,6 +31,7 @@
         android:textColor="@color/colorBlack"
         android:shadowColor="@color/colorGraySoLight"
         android:textSize="33dp"
+        android:layout_marginTop="65dp"
         android:textStyle="bold"/>
 
     <!--<TextView-->
