@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<UserResponse> call, Throwable t) {
-
+                        Toast.makeText(getApplicationContext(), "tidak connect",Toast.LENGTH_SHORT).show();
                     }
                 });
 
