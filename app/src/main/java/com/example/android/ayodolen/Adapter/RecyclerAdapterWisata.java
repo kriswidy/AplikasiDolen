@@ -15,18 +15,21 @@ import android.widget.TextView;
 import com.example.android.ayodolen.DetailWisataActivity;
 import com.example.android.ayodolen.Model.Wisata;
 import com.example.android.ayodolen.R;
+import com.example.android.ayodolen.Rest.ApiClient;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapterWisata extends RecyclerView.Adapter<RecyclerAdapterWisata.MyViewHolder> implements Filterable {
 
-    private List<String> wisata;
-    private List<String>  wisataFull;
+    private List<Wisata> wisata;
+    private List<Wisata>  wisataFull;
     private Context mContext;
 
 
-    public RecyclerAdapterWisata(List<String> wisata, Context mContext) {
+
+    public RecyclerAdapterWisata(List<Wisata> wisata, Context mContext) {
         this.wisata = wisata;
         this.mContext = mContext;
         wisataFull = new ArrayList<>(wisata);
@@ -41,12 +44,23 @@ public class RecyclerAdapterWisata extends RecyclerView.Adapter<RecyclerAdapterW
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerAdapterWisata.MyViewHolder holder, int position) {
-        holder.namaWisata.setText(wisata.get(position).toString());
+    public void onBindViewHolder(@NonNull RecyclerAdapterWisata.MyViewHolder holder, final int position) {
+        holder.namaWisata.setText(wisata.get(position).getNama_wisata());
+        Picasso.with(mContext).load(ApiClient.BASE_URL+"assets/image/"+wisata.get(position).getImage()).into(holder.img);
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent detail = new Intent(mContext,DetailWisataActivity.class);
+                detail.putExtra("id_wisata", wisata.get(position).getId_wisata());
+                detail.putExtra("nama_wisata",wisata.get(position).getNama_wisata());
+                detail.putExtra("alamat",wisata.get(position).getAlamat());
+                detail.putExtra("deskripsi",wisata.get(position).getDeskripsi());
+                detail.putExtra("lt",wisata.get(position).getLatitude());
+                detail.putExtra("lng",wisata.get(position).getLongitude());
+                detail.putExtra("image",wisata.get(position).getImage());
+                detail.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(detail);
             }
         });
@@ -67,14 +81,14 @@ public class RecyclerAdapterWisata extends RecyclerView.Adapter<RecyclerAdapterW
     private Filter WisataFilter = new Filter(){
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
-            List<String> filterWisata = new ArrayList<>();
+            List<Wisata> filterWisata = new ArrayList<>();
 
             if(charSequence == null || charSequence.length() == 0){
                 filterWisata.addAll(wisataFull);
             }else{
                 String textfilter = charSequence.toString().toLowerCase().trim();
-                for (String w : wisataFull){
-                    if(w.toString().toLowerCase().contains(textfilter)){
+                for (Wisata w : wisataFull){
+                    if(w.getNama_wisata().toLowerCase().contains(textfilter)){
                         filterWisata.add(w);
                     }
                 }

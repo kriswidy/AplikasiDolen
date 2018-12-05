@@ -15,6 +15,7 @@ import com.example.android.ayodolen.Model.User;
 import com.example.android.ayodolen.Model.UserResponse;
 import com.example.android.ayodolen.Rest.ApiClient;
 import com.example.android.ayodolen.Rest.ApiInterface;
+import com.example.android.ayodolen.Session.SessionManagement;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.buttonYuk);
 //        getActionBar().hide();
+        final SessionManagement s1 = new SessionManagement(this);
 
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -55,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ApiInterface mApiInterface =
                         ApiClient.getClient().create(ApiInterface.class);
-                Call<UserResponse> mLogin = mApiInterface.loginRequest(username.getText().toString());
+                Call<UserResponse> mLogin = mApiInterface.loginRequest(username.getText().toString(),password.getText().toString());
                 mLogin.enqueue(new Callback<UserResponse>() {
                     @Override
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
@@ -63,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (status.equals("success")){
                             User user = response.body().getUser();
 //                            create sesion
-//                            mSesion.createLoginSession(krywn.getId(),krywn.getNama(),krywn.getLevel());
+                            s1.createLoginSession(user.getUsername().toString(),user.getPassword().toString());
                             Intent i = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(i);
                             finish();

@@ -1,6 +1,7 @@
 package com.example.android.ayodolen;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -60,8 +61,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         getDirection = findViewById(R.id.btnDirection);
 
+        final Intent i = getIntent();
+
+
         place1 = new MarkerOptions().position(new LatLng(-7.8, 112.658296)).title("D Anda");
-        place2 = new MarkerOptions().position(new LatLng(-7.922272, 112.658296)).title("Tujuan Anda");
+        place2 = new MarkerOptions().position(new LatLng(i.getDoubleExtra("lat",0), i.getDoubleExtra("longi",0))).title("Tujuan Anda");
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -73,6 +77,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 new FetchURL(MapsActivity.this).execute(getUrl(place1.getPosition(), place2.getPosition(), "driving"), "driving");
+
+                LatLng latLng = new LatLng(i.getDoubleExtra("lat",0), i.getDoubleExtra("longi",0));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+
             }
         });
 

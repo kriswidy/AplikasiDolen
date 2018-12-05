@@ -1,11 +1,13 @@
 package com.example.android.ayodolen.Rest;
 
+import com.example.android.ayodolen.Model.GetWisata;
 import com.example.android.ayodolen.Model.User;
 import com.example.android.ayodolen.Model.UserResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -15,10 +17,25 @@ import retrofit2.http.POST;
 public interface ApiInterface {
     @FormUrlEncoded
     @POST("login")
-    Call<UserResponse> loginRequest(@Field("username") String username);
+    Call<UserResponse> loginRequest(@Field("username") String username,
+                                    @Field("password") String password);
 //    @FormUrlEncoded
 //    @POST("login")
 //    Call<UserResponse> loginRequest(@Field("username") String username,
 //                                    @Field("password") String password);
+
+
+    //semua wisata
+    @GET("wisata") Call<GetWisata> getWisata();
+
+    //wisata kategori
+    @FormUrlEncoded
+    @POST("wisata/kategori") Call<GetWisata> getWisataKategori(@Field("id_kategori") String id_kategori);
+
+
+
+
+
+
 
 }

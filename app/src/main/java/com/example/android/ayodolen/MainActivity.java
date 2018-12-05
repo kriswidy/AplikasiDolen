@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import com.example.android.ayodolen.Session.SessionManagement;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button mButtonDaftar;
@@ -21,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splashscreen);
         mButtonMasuk = (Button) findViewById(R.id.buttonMasuk);
         mButtonDaftar = (Button) findViewById(R.id.buttonDaftar);
+        final SessionManagement s1 = new SessionManagement(this);
+        if(s1.isLoggedIn()){
+            goToActivity();
+        }
         //click
         mButtonMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,5 +44,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void goToActivity(){
+        Intent i = new Intent(getApplicationContext()
+                ,HomeActivity.class);
+        startActivity(i);
     }
 }

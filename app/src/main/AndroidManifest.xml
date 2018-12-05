@@ -41,11 +41,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".DetailWisataActivity" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity">
+
+        </activity>
         <activity android:name=".KategoriActivity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
