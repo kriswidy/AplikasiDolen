@@ -12,8 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
-
-    DataHelper dbHelper;
     Button register;
     TextView login;
     EditText email, username, pwd;
@@ -35,7 +33,26 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        email = findViewById(R.id.inputEmail);
+        username = findViewById(R.id.inputUsername);
+        pwd = findViewById(R.id.inputPasswd);
+        register = findViewById(R.id.btnRegister);
+        login = findViewById(R.id.lbPunyaakun);
 
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+    private void emptyEditText(){
+        email.setText(null);
+        username.setText(null);
+        pwd.setText(null);
     }
 
 }

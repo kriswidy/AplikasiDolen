@@ -19,27 +19,23 @@ import com.example.android.ayodolen.R;
 
 public class ProfileFragment extends Fragment {
     Button btnLogout;
-
+    View v;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile,container,false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         btnLogout = view.findViewById(R.id.btnKeluar);
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent log = new Intent(getActivity().getApplicationContext(),MainActivity.class);
+                Intent log = new Intent(getActivity().getApplicationContext(), MainActivity.class);
                 startActivity(log);
 
                 getActivity().finish();
             }
         });
-
-
         return view;
     }
-
-
 }
