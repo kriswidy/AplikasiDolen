@@ -69,8 +69,11 @@ public class LoginActivity extends AppCompatActivity {
 
                             if(ingatSaya){
                                 //                            create sesion
-                                s1.createLoginSession(user.getUsername().toString(),user.getPassword().toString());
+                                s1.createLoginSession(user.getUsername().toString(),user.getPassword().toString(),true);
+                            }else{
+                                s1.createLoginSession(user.getUsername().toString(),user.getPassword().toString(),false);
                             }
+
 
                             Intent i = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(i);

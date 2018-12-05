@@ -34,9 +34,14 @@ public class SessionManagement {
         mEditor = mSharedPreference.edit();
     }
 
-    public void createLoginSession(String username, String password){
+    public void createLoginSession(String username, String password,Boolean cek){
 // Storing login value as TRUE
-        mEditor.putBoolean(IS_LOGIN, true);
+        if(cek){
+            mEditor.putBoolean(IS_LOGIN, true);
+        }else{
+            mEditor.putBoolean(IS_LOGIN, false);
+        }
+
 // Storing id
 //        mEditor.putString(KEY_ID, id_user.toString());
         mEditor.putString(KEY_Username, username.toString());

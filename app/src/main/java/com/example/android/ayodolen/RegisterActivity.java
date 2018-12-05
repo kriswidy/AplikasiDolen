@@ -11,10 +11,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.ayodolen.Model.RegistrasiUser;
+import com.example.android.ayodolen.Rest.ApiClient;
+import com.example.android.ayodolen.Rest.ApiInterface;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RegisterActivity extends AppCompatActivity {
     Button register;
     TextView login;
-    EditText email, username, pwd;
+    EditText nama, username, pwd;
+    ApiInterface mApiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +44,12 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
-//        email = findViewById(R.id.inputEmail);
+        nama = findViewById(R.id.inputNama);
         username = findViewById(R.id.inputUsername);
         pwd = findViewById(R.id.inputPasswd);
         register = findViewById(R.id.btnRegister);
         login = findViewById(R.id.lbPunyaakun);
+        mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -50,11 +60,34 @@ public class RegisterActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Call<RegistrasiUser> newUser = mApiInterface.registrasiUser( username.getText().toString(),
+                        pwd.getText().toString(), nama.getText().toString());
+
+
+                newUser.enqueue(new Callback<RegistrasiUser>() {
+                    @Override
+                    public void onResponse(Call<RegistrasiUser> call, Response<RegistrasiUser> response) {
+                        Toast.makeText(getApplicationContext(),"Berhasi Mendaftar",Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+
+                    @Override
+                    public void onFailure(Call<RegistrasiUser> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),"error "+t,Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+            }
+        });
+
+
     }
-    private void emptyEditText(){
-        email.setText(null);
-        username.setText(null);
-        pwd.setText(null);
-    }
+
 
 }
