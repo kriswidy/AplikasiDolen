@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();
     EditText username, password;
     Button btnLogin;
+    Boolean ingatSaya = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +66,12 @@ public class LoginActivity extends AppCompatActivity {
                         String status = response.body().getStatus();
                         if (status.equals("success")){
                             User user = response.body().getUser();
-//                            create sesion
-                            s1.createLoginSession(user.getUsername().toString(),user.getPassword().toString());
+
+                            if(ingatSaya){
+                                //                            create sesion
+                                s1.createLoginSession(user.getUsername().toString(),user.getPassword().toString());
+                            }
+
                             Intent i = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(i);
                             finish();
@@ -82,4 +88,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void itemClicked(View v){
+        CheckBox checkBox = (CheckBox)v;
+        if(checkBox.isChecked()){
+            ingatSaya = true;
+        }else{
+            ingatSaya = false;
+        }
+    }
+
 }

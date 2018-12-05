@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
-        email = findViewById(R.id.inputEmail);
+//        email = findViewById(R.id.inputEmail);
         username = findViewById(R.id.inputUsername);
         pwd = findViewById(R.id.inputPasswd);
         register = findViewById(R.id.btnRegister);
