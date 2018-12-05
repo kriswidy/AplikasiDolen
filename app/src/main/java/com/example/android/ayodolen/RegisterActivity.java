@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,5 +42,18 @@ public class RegisterActivity extends AppCompatActivity {
         email.setText(null);
         username.setText(null);
         pwd.setText(null);
+        Toolbar toolbar = findViewById(R.id.toolbarRegistrasi);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+
     }
+
 }
