@@ -22,6 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 //        getActionBar().hide();
 
+
         Toolbar toolbar = findViewById(R.id.toolbarRegistrasi);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
@@ -32,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
         email = findViewById(R.id.inputEmail);
         username = findViewById(R.id.inputUsername);

@@ -18,8 +18,9 @@ import com.example.android.ayodolen.R;
  */
 
 public class ProfileFragment extends Fragment {
-    Button btnLogout;
+
     View v;
+    Button btnLogout;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,5 +38,6 @@ public class ProfileFragment extends Fragment {
             }
         });
         return view;
+
     }
 }
