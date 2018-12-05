@@ -48,9 +48,10 @@ public class SearchFragment extends Fragment {
 
         mRecyclerView = view.findViewById(R.id.rv_search);
 
-        mWisata.add("aaa");
-        mWisata.add("adasd");
-        mWisata.add("1333");
+        mWisata.add("Pantai");
+        mWisata.add("Gunung");
+        mWisata.add("Taman");
+        mWisata.add("Alun-alun");
 
 
 

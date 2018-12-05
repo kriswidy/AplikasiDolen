@@ -2,6 +2,7 @@ package com.example.android.ayodolen;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ public class DetailWisataActivity extends AppCompatActivity {
 
     TextView nama_wisata, alamat, deskripsi;
     ImageView imgWisata;
+    FloatingActionButton btnMaps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class DetailWisataActivity extends AppCompatActivity {
         nama_wisata = findViewById(R.id.tvDetailNama);
         alamat = findViewById(R.id.tvDetailAlamat);
         deskripsi = findViewById(R.id.tvDetailDeskripsi);
+        btnMaps = findViewById(R.id.fbtnMaps);
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -33,6 +36,15 @@ public class DetailWisataActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        btnMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent maps = new Intent(getApplicationContext(),MapsActivity.class);
+                startActivity(maps);
+            }
+        });
+
 
         if(getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
