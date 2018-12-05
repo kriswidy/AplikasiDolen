@@ -99,6 +99,7 @@
 
     <android.support.design.widget.FloatingActionButton
 
+        android:id="@+id/fbtnMaps"
         android:layout_width="51dp"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_direction"

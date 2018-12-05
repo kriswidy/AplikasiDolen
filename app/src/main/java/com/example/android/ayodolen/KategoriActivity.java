@@ -57,11 +57,11 @@ public class KategoriActivity extends AppCompatActivity {
     }
 
     void initData(){
-        wisata.add("Pantai");
-        wisata.add("Pantai");
-        wisata.add("Pantai");
-        wisata.add("Pantai");
-        wisata.add("Pantai");
+        wisata.add("Pantai A");
+        wisata.add("Pantai B");
+        wisata.add("Pantai C");
+        wisata.add("Pantai D");
+        wisata.add("Pantai E");
 
     }
 
