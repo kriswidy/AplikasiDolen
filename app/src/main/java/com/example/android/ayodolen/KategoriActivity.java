@@ -30,6 +30,7 @@ public class KategoriActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<Wisata> mWisata = new ArrayList<>();
+    private String id_kategori;
 
 
     @Override
@@ -37,12 +38,12 @@ public class KategoriActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kategori);
 
-
         Toolbar toolbar = findViewById(R.id.toolbarKategori);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Kategori Wisata");
 
-
+        Intent i = getIntent();
+        id_kategori = i.getStringExtra("id_kategori");
 
 
 
@@ -69,7 +70,7 @@ public class KategoriActivity extends AppCompatActivity {
 
     public void loadData(){
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<GetWisata> getKategr = mApiInterface.getWisataKategori("2");
+        Call<GetWisata> getKategr = mApiInterface.getWisataKategori(id_kategori);
         getKategr.enqueue(new Callback<GetWisata>() {
             @Override
             public void onResponse(Call<GetWisata> call, Response<GetWisata> response) {

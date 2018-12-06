@@ -1,6 +1,7 @@
 package com.example.android.ayodolen.Rest;
 
 import com.example.android.ayodolen.Model.GetWisata;
+import com.example.android.ayodolen.Model.KategoriResponse;
 import com.example.android.ayodolen.Model.RegistrasiUser;
 import com.example.android.ayodolen.Model.User;
 import com.example.android.ayodolen.Model.UserResponse;
@@ -41,6 +42,10 @@ public interface ApiInterface {
     //wisata kategori
     @FormUrlEncoded
     @POST("wisata/kategori") Call<GetWisata> getWisataKategori(@Field("id_kategori") String id_kategori);
+
+
+    //kategori
+    @GET("kategori") Call<KategoriResponse> getKategori();
 
 
 
