@@ -39,13 +39,14 @@ public class RecyclerAdapterKategori extends RecyclerView.Adapter<RecyclerAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapterKategori.MyViewholder holder, final int position) {
         holder.namaKategori.setText(mKategori.get(position).getKategori_wisata());
-        Picasso.with(mContext).load(ApiClient.BASE_URL+"assets/image/"+mKategori.get(position).getImage()).into(holder.img);
+        Picasso.with(mContext).load(ApiClient.BASE_URL+"assets/image/kategori/"+mKategori.get(position).getImage()).into(holder.img);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent kate = new Intent(mContext,KategoriActivity.class);
                 kate.putExtra("id_kategori",mKategori.get(position).getId_kategori());
+                kate.putExtra("kategori",mKategori.get(position).getKategori_wisata());
 
                 mContext.startActivity(kate);
 

@@ -38,12 +38,14 @@ public class KategoriActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kategori);
 
-        Toolbar toolbar = findViewById(R.id.toolbarKategori);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Kategori Wisata");
-
         Intent i = getIntent();
         id_kategori = i.getStringExtra("id_kategori");
+
+        Toolbar toolbar = findViewById(R.id.toolbarKategori);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(i.getStringExtra("kategori"));
+
+
 
 
 

@@ -81,9 +81,9 @@ public class HomeFragment extends Fragment {
 
     private void setLayout(){
         String url [] = new String[]{
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Malang_WEB.jpg/1200px-Malang_WEB.jpg",
-                "https://pergimulu.com/wp-content/uploads/2017/03/Panduan-Tips-Pergi-Liburan-Ke-Malang-via-@candra_ea.jpg",
-                "https://img.ayokuliah.id/uploads/2015/09/Politeknik-Negeri-Malang.jpg"
+                "http://macigo.com/wp-content/uploads/2017/06/Museum_Angkut_3.jpg",
+                "http://macigo.com/wp-content/uploads/2017/06/Pantai_Kondang_Merak_Macigo_1.jpg",
+                "http://macigo.com/wp-content/uploads/2017/06/Coban_Rondo_Macigo_1.jpg"
 
         };
 
