@@ -20,6 +20,9 @@ import com.example.android.ayodolen.Model.KategoriResponse;
 import com.example.android.ayodolen.R;
 import com.example.android.ayodolen.Rest.ApiClient;
 import com.example.android.ayodolen.Rest.ApiInterface;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +45,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
     private List<Kategori> mKategori = new ArrayList<>();
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,6 +55,9 @@ public class HomeFragment extends Fragment {
 
         mRecyclerView = view.findViewById(R.id.rv_kategori);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+
+
+
 
         loadKategori();
 

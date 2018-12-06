@@ -12,17 +12,34 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import com.example.android.ayodolen.Session.SessionManagement;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button mButtonDaftar;
     private Button mButtonMasuk;
+    private AdView mAdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
         mButtonMasuk = (Button) findViewById(R.id.buttonMasuk);
         mButtonDaftar = (Button) findViewById(R.id.buttonDaftar);
+
+        MobileAds.initialize(this, "ca-app-pub-3785883432730730~6557702169");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("0FA20932AFE1095798444FD9AAB7D425")
+                .build();
+
+        // Start loading the ad in the background.
+        mAdView.loadAd(adRequest);
+
+
         final SessionManagement s1 = new SessionManagement(this);
         if(s1.isLoggedIn()){
             goToActivity();
