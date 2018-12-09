@@ -4,18 +4,26 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RegisterActivity extends AppCompatActivity {
+import com.example.android.ayodolen.Model.RegistrasiUser;
+import com.example.android.ayodolen.Rest.ApiClient;
+import com.example.android.ayodolen.Rest.ApiInterface;
 
-    DataHelper dbHelper;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class RegisterActivity extends AppCompatActivity {
     Button register;
     TextView login;
-    EditText email, username, pwd;
+    EditText nama, username, pwd;
+    ApiInterface mApiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,40 +31,63 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 //        getActionBar().hide();
 
-        email = findViewById(R.id.inputEmail);
-        username = findViewById(R.id.inputUsername);
-        pwd = findViewById(R.id.inputPasswd);
 
-        register = findViewById(R.id.btnRegister);
-        login = findViewById(R.id.tvLogin);
+        Toolbar toolbar = findViewById(R.id.toolbarRegistrasi);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
 
-        register.setOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                db.execSQL("INSERT INTO user ( email, username, password) VALUES ('" +
-                        email.getText().toString() + "','" +
-                        username.getText().toString() + "','" +
-                        pwd.getText().toString() + "')");
-
-                Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_SHORT).show();
-                emptyEditText();
-//                Intent mIntent = new Intent(getApplicationContext(), LoginActivity.class);
-//                startActivity(mIntent);
+            public void onClick(View view) {
+                finish();
             }
         });
+
+
+        nama = findViewById(R.id.inputNama);
+        username = findViewById(R.id.inputUsername);
+        pwd = findViewById(R.id.inputPasswd);
+        register = findViewById(R.id.btnRegister);
+        login = findViewById(R.id.lbPunyaakun);
+        mApiInterface = ApiClient.getClient().create(ApiInterface.class);
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Call<RegistrasiUser> newUser = mApiInterface.registrasiUser( username.getText().toString(),
+                        pwd.getText().toString(), nama.getText().toString());
+
+
+                newUser.enqueue(new Callback<RegistrasiUser>() {
+                    @Override
+                    public void onResponse(Call<RegistrasiUser> call, Response<RegistrasiUser> response) {
+                        Toast.makeText(getApplicationContext(),"Berhasi Mendaftar",Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+
+                    @Override
+                    public void onFailure(Call<RegistrasiUser> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),"error "+t,Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+            }
+        });
+
+
     }
-    private void emptyEditText(){
-        email.setText(null);
-        username.setText(null);
-        pwd.setText(null);
-    }
+
+
 }
