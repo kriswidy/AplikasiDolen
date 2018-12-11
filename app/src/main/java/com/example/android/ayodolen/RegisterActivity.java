@@ -71,8 +71,14 @@ public class RegisterActivity extends AppCompatActivity {
                 newUser.enqueue(new Callback<RegistrasiUser>() {
                     @Override
                     public void onResponse(Call<RegistrasiUser> call, Response<RegistrasiUser> response) {
-                        Toast.makeText(getApplicationContext(),"Berhasi Mendaftar",Toast.LENGTH_SHORT).show();
-                        finish();
+                        if(response.body().getStatus().equals("gagal")){
+                            Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+//                        Toast.makeText(getApplicationContext(),"Berhasil Mendaftar",Toast.LENGTH_SHORT).show();
+//                        finish();
                     }
 
                     @Override

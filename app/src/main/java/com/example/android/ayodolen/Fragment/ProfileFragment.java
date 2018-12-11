@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.ayodolen.EditUserActivity;
 import com.example.android.ayodolen.HomeActivity;
 import com.example.android.ayodolen.MainActivity;
 import com.example.android.ayodolen.Model.User;
@@ -32,8 +33,9 @@ import retrofit2.Response;
 public class ProfileFragment extends Fragment {
 
     View v;
-    Button btnLogout;
+    Button btnLogout, btEdit;
     TextView email;
+    String id_user;
 
     @Nullable
     @Override
@@ -41,6 +43,7 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         email = view.findViewById(R.id.tvEmail);
         btnLogout = view.findViewById(R.id.btnKeluar);
+        btEdit = view.findViewById(R.id.btnEdit);
         final SessionManagement s1 = new SessionManagement(getContext());
         loadData(s1);
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +56,16 @@ public class ProfileFragment extends Fragment {
                 getActivity().finish();
             }
         });
+
+        btEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), EditUserActivity.class);
+                i.putExtra("id_user",id_user);
+                startActivity(i);
+            }
+        });
+
         return view;
 
     }
@@ -67,6 +80,7 @@ public class ProfileFragment extends Fragment {
                 String status = response.body().getStatus();
                 if (status.equals("success")){
                     User user = response.body().getUser();
+                    id_user = user.getId_user().toString();
 //                            create sesion
                     email.setText(user.getNama());
 
