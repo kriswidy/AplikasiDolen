@@ -35,7 +35,7 @@ public class ProfileFragment extends Fragment {
     View v;
     Button btnLogout, btEdit;
     TextView email;
-    String id_user;
+    String id_user, nama, username;
 
     @Nullable
     @Override
@@ -62,6 +62,9 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), EditUserActivity.class);
                 i.putExtra("id_user",id_user);
+                i.putExtra("nama",nama);
+                i.putExtra("username", username);
+
                 startActivity(i);
             }
         });
@@ -81,6 +84,9 @@ public class ProfileFragment extends Fragment {
                 if (status.equals("success")){
                     User user = response.body().getUser();
                     id_user = user.getId_user().toString();
+                    nama = user.getNama();
+                    username = user.getUsername();
+
 //                            create sesion
                     email.setText(user.getNama());
 

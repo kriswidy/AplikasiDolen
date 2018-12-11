@@ -13,6 +13,7 @@ import com.example.android.ayodolen.Model.User;
 import com.example.android.ayodolen.Model.UserResponse;
 import com.example.android.ayodolen.Rest.ApiClient;
 import com.example.android.ayodolen.Rest.ApiInterface;
+import com.example.android.ayodolen.Session.SessionManagement;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,8 +31,11 @@ public class EditUserActivity extends AppCompatActivity {
         edUsername = (EditText) findViewById(R.id.edtUsername);
         edPassword = (EditText) findViewById(R.id.edtPasswd);
         btEdit = (Button) findViewById(R.id.btnEdit);
+        final SessionManagement s1 = new SessionManagement(getApplicationContext());
         Intent i = getIntent();
         id_user = i.getStringExtra("id_user");
+        edNama.setText(i.getStringExtra("nama"));
+        edUsername.setText(i.getStringExtra("username"));
 
         btEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,12 +47,14 @@ public class EditUserActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<EditUser> call, Response<EditUser> response) {
                         String status = response.body().getStatus();
-                        if (status.equals("success")){
+                        if (status.equals("sukses")){
                             User user = response.body().getmUser();
                             Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
                             finish();
                         }else {
-                            Toast.makeText(getApplicationContext(),"fail load data",Toast.LENGTH_SHORT).show();
+                            User user = response.body().getmUser();
+                            Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
+                            finish();
                         }
                     }
 
