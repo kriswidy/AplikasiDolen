@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorWhite">
 
     <ImageView
         android:id="@+id/imgBackgroundProfil"
@@ -31,7 +31,7 @@
         android:text="Selamat Datang,"
         android:textSize="10pt"
         android:textStyle="bold"
-        android:textColor="@color/colorGraySoLight"
+        android:textColor="@color/colorBlack"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/imageProfil"
         android:layout_marginTop="30dp"
@@ -45,7 +45,7 @@
         android:layout_centerHorizontal="true"
         android:text="yahuyagaming@gmail.com"
         android:layout_below="@+id/tvWelcome"
-        android:textColor="@color/colorGraySoLight"
+        android:textColor="@color/colorBlack"
         android:textStyle="bold"
         android:textSize="10pt"
         />
@@ -54,8 +54,8 @@
         android:id="@+id/btnEdit"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_shape2"
-        android:text="Edit"
+        android:background="@drawable/btn_shape4"
+        android:text="Edit Profil"
         android:textColor="@color/colorWhite"
         android:textSize="8pt"
         android:layout_centerVertical="true"
@@ -68,7 +68,7 @@
         android:id="@+id/btnKeluar"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_shape3"
+        android:background="@drawable/btn_shape1"
         android:text="Keluar"
         android:textColor="@color/colorWhite"
         android:textSize="8pt"

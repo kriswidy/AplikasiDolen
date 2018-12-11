@@ -10,12 +10,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="500px"
-        android:layout_height="500px"
+        android:layout_width="700px"
+        android:layout_height="700px"
+        android:layout_marginTop="90dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="73dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo_ayodolen"
         />
 
     <Button
