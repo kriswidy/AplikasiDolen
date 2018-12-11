@@ -12,14 +12,20 @@ public class User {
     @SerializedName("password") private String password;
     @SerializedName("nama") private String nama;
     @SerializedName("tanggal_lahir") private String tanggal_lahir;
+    @SerializedName("status") private  String status;
 
-    public User(Integer id_user, String username, String password, String nama, String tanggal_lahir) {
+    public User(Integer id_user, String username, String password, String nama, String tanggal_lahir, String status) {
         this.id_user = id_user;
         this.username = username;
         this.password = password;
         this.nama = nama;
         this.tanggal_lahir = tanggal_lahir;
+        this.status = status;
     }
+
+    public String getStatus() { return status; }
+
+    public void setStatus(String status) { this.status = status; }
 
     public Integer getId_user() {
         return id_user;

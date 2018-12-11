@@ -51,6 +51,20 @@
         />
 
     <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_shape2"
+        android:text="Edit"
+        android:textColor="@color/colorWhite"
+        android:textSize="8pt"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvEmail"
+        android:layout_marginTop="40dp"
+        />
+
+    <Button
         android:id="@+id/btnKeluar"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
@@ -60,8 +74,8 @@
         android:textSize="8pt"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/tvEmail"
-        android:layout_marginTop="100dp"
+        android:layout_below="@+id/btnEdit"
+        android:layout_marginTop="30dp"
         />
 
 </RelativeLayout>
