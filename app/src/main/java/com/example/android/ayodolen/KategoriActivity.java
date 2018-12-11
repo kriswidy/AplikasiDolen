@@ -45,10 +45,6 @@ public class KategoriActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(i.getStringExtra("kategori"));
 
-
-
-
-
         mRecyclerView = findViewById(R.id.rv_wisata);
         mLayoutManager = new GridLayoutManager(getApplicationContext(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
