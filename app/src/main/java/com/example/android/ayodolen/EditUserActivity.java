@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.android.ayodolen.Model.EditUser;
 import com.example.android.ayodolen.Model.User;
@@ -31,6 +32,19 @@ public class EditUserActivity extends AppCompatActivity {
         edUsername = (EditText) findViewById(R.id.edtUsername);
         edPassword = (EditText) findViewById(R.id.edtPasswd);
         btEdit = (Button) findViewById(R.id.btnEdit);
+
+        android.support.v7.widget.Toolbar tb = findViewById(R.id.toolbarEditUser);
+        setSupportActionBar(tb);
+        getSupportActionBar().setTitle("");
+
+        tb.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
         final SessionManagement s1 = new SessionManagement(getApplicationContext());
         Intent i = getIntent();
         id_user = i.getStringExtra("id_user");
