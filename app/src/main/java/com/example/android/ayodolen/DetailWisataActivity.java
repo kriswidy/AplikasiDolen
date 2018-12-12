@@ -3,11 +3,16 @@ package com.example.android.ayodolen;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.android.ayodolen.Adapter.SectionsPageAdapter;
+import com.example.android.ayodolen.Fragment.DeskripsiFragment;
+import com.example.android.ayodolen.Fragment.KomentarFragment;
 import com.example.android.ayodolen.Rest.ApiClient;
 import com.squareup.picasso.Picasso;
 
@@ -18,6 +23,11 @@ public class DetailWisataActivity extends AppCompatActivity {
     ImageView img;
     ImageView imgWisata;
     FloatingActionButton btnMaps;
+    String dsk;
+
+    private SectionsPageAdapter mSectionsPageAdapter;
+
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +35,14 @@ public class DetailWisataActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_wisata);
         nama_wisata = findViewById(R.id.tvDetailNama);
         alamat = findViewById(R.id.tvDetailAlamat);
-        deskripsi = findViewById(R.id.tvDetailDeskripsi);
+        //deskripsi = findViewById(R.id.tvDetailDeskripsi);
         btnMaps = findViewById(R.id.fbtnMaps);
         img = findViewById(R.id.imgDetailWisata);
         Intent i = getIntent();
 
         String nama     = i.getStringExtra("nama_wisata");
         String alamt   = i.getStringExtra("alamat");
-        String dsk      = i.getStringExtra("deskripsi");
+        dsk      = i.getStringExtra("deskripsi");
         String image    = i.getStringExtra("image");
         final Double lat      = i.getDoubleExtra("lt",0);
         final Double longi             = i.getDoubleExtra("lng",0);
@@ -67,10 +77,32 @@ public class DetailWisataActivity extends AppCompatActivity {
 
         nama_wisata.setText(nama);
         alamat.setText(alamt);
-        deskripsi.setText(dsk);
+//        deskripsi.setText(dsk);
         Picasso.with(getApplicationContext())
                 .load(ApiClient.BASE_URL+"assets/image/"+image)
                 .into(img);
 
+
+
+        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
+
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = findViewById(R.id.container);
+        setupViewPager(mViewPager);
+
+        TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+
     }
+
+    private void setupViewPager(ViewPager viewPager) {
+        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(DeskripsiFragment.newInstance(dsk), "Deskripsi");
+        adapter.addFragment(new KomentarFragment(), "Komentar");
+
+        viewPager.setAdapter(adapter);
+    }
+
+
+
 }
