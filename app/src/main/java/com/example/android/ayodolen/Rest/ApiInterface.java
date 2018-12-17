@@ -62,6 +62,13 @@ public interface ApiInterface {
     @POST("komentar/komentar") Call<KomentarResponse> getKomentar(@Field("id_wisata") String id_wisata);
 
 
+    @FormUrlEncoded
+    @POST("komentar/insert") Call<KomentarResponse> tambahKomentar(@Field("id_wisata") String id_wisata,
+                                                                   @Field("id_user") String id_user,
+                                                                   @Field("komentar") String komentar,
+                                                                   @Field("tanggal") String tanggal);
+
+
 
 
 

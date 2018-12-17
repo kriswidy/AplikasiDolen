@@ -4,13 +4,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.ayodolen.Adapter.RecyclerAdapterKomentar;
 import com.example.android.ayodolen.Model.Komentar;
@@ -18,9 +22,13 @@ import com.example.android.ayodolen.Model.KomentarResponse;
 import com.example.android.ayodolen.R;
 import com.example.android.ayodolen.Rest.ApiClient;
 import com.example.android.ayodolen.Rest.ApiInterface;
+import com.example.android.ayodolen.Session.SessionManagement;
 import com.google.android.gms.common.api.Api;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -35,6 +43,9 @@ public class KomentarFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerAdapterKomentar mAdapter;
     private List<Komentar> mKomentar = new ArrayList<>();
+
+    EditText edtkomentar;
+    Button btnKomen;
 
     public static KomentarFragment newInstance(String title){
         Bundle args = new Bundle();
@@ -67,6 +78,19 @@ public class KomentarFragment extends Fragment {
 //        TextView test = view.findViewById(R.id.fragkomen);
 
 //        test.setText(idWisata);
+
+        final SessionManagement s1 = new SessionManagement(getContext());
+        edtkomentar = view.findViewById(R.id.text_komentar);
+        btnKomen = view.findViewById(R.id.btnKomen);
+
+        btnKomen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                insertData(s1.getKeyId());
+
+            }
+        });
+
         LoadData();
         return view;
     }
@@ -91,6 +115,30 @@ public class KomentarFragment extends Fragment {
             }
         });
 
+    }
+
+    public void insertData(String idUser){
+        DateFormat df = new SimpleDateFormat("dd MMM yyyy");
+        String date = df.format(Calendar.getInstance().getTime());
+        mApiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Call<KomentarResponse> tambahKomentar = mApiInterface.tambahKomentar(idWisata,idUser,edtkomentar.getText().toString(),date);
+        tambahKomentar.enqueue(new Callback<KomentarResponse>() {
+            @Override
+            public void onResponse(Call<KomentarResponse> call, Response<KomentarResponse> response) {
+                if(response.body().getStatus().equals("sukses")){
+                    Toast.makeText(getActivity(),"Berhasil Menambahkan Komentar",Toast.LENGTH_SHORT).show();
+                    LoadData();
+
+                }else{
+                    Toast.makeText(getActivity(),"Gagal Menambahkan Komentar",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<KomentarResponse> call, Throwable t) {
+                Log.e("Retrofit Get", t.toString());
+            }
+        });
     }
 
 
