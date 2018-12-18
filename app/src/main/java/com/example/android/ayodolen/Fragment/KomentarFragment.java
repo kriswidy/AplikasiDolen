@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -87,6 +88,10 @@ public class KomentarFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 insertData(s1.getKeyId());
+                edtkomentar.setText("");
+
+
+
 
             }
         });
