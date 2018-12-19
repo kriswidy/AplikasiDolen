@@ -18,7 +18,9 @@
         android:id="@+id/btnDirection"
         android:layout_width="51dp"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigasi"
+        android:layout_marginBottom="20dp"
         map:layout_anchor="@+id/map"
-        map:layout_anchorGravity="left|center" />
+        map:layout_anchorGravity="bottom|center" />
 
 </android.support.design.widget.CoordinatorLayout>

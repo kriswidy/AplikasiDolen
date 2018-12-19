@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.ayodolen.Model.User;
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     Button btnLogin;
     Boolean ingatSaya = false;
+    TextView linkDaftar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +71,9 @@ public class LoginActivity extends AppCompatActivity {
 
                             if(ingatSaya){
                                 //                            create sesion
-                                s1.createLoginSession(user.getUsername().toString(),user.getPassword().toString(),true);
+                                s1.createLoginSession(user.getUsername().toString(),user.getPassword().toString(), user.getId_user().toString(),true);
                             }else{
-                                s1.createLoginSession(user.getUsername().toString(),user.getPassword().toString(),false);
+                                s1.createLoginSession(user.getUsername().toString(),user.getPassword().toString(),user.getId_user().toString(),false);
                             }
 
 
@@ -90,6 +92,16 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
+
+        linkDaftar = findViewById(R.id.linkDaftar);
+        linkDaftar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void itemClicked(View v){

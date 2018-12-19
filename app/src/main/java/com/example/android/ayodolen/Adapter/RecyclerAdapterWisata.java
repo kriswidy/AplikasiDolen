@@ -2,6 +2,7 @@ package com.example.android.ayodolen.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.ayodolen.DetailWisataActivity;
+import com.example.android.ayodolen.Fragment.DeskripsiFragment;
 import com.example.android.ayodolen.Model.Wisata;
 import com.example.android.ayodolen.R;
 import com.example.android.ayodolen.Rest.ApiClient;
@@ -52,6 +54,7 @@ public class RecyclerAdapterWisata extends RecyclerView.Adapter<RecyclerAdapterW
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent detail = new Intent(mContext,DetailWisataActivity.class);
                 detail.putExtra("id_wisata", wisata.get(position).getId_wisata());
                 detail.putExtra("nama_wisata",wisata.get(position).getNama_wisata());

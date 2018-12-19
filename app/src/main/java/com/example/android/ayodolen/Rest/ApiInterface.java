@@ -3,6 +3,7 @@ package com.example.android.ayodolen.Rest;
 import com.example.android.ayodolen.Model.EditUser;
 import com.example.android.ayodolen.Model.GetWisata;
 import com.example.android.ayodolen.Model.KategoriResponse;
+import com.example.android.ayodolen.Model.KomentarResponse;
 import com.example.android.ayodolen.Model.RegistrasiUser;
 import com.example.android.ayodolen.Model.User;
 import com.example.android.ayodolen.Model.UserResponse;
@@ -55,6 +56,17 @@ public interface ApiInterface {
 
     //kategori
     @GET("kategori") Call<KategoriResponse> getKategori();
+
+    //komentar
+    @FormUrlEncoded
+    @POST("komentar/komentar") Call<KomentarResponse> getKomentar(@Field("id_wisata") String id_wisata);
+
+
+    @FormUrlEncoded
+    @POST("komentar/insert") Call<KomentarResponse> tambahKomentar(@Field("id_wisata") String id_wisata,
+                                                                   @Field("id_user") String id_user,
+                                                                   @Field("komentar") String komentar,
+                                                                   @Field("tanggal") String tanggal);
 
 
 

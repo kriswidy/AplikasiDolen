@@ -34,7 +34,7 @@ public class SessionManagement {
         mEditor = mSharedPreference.edit();
     }
 
-    public void createLoginSession(String username, String password,Boolean cek){
+    public void createLoginSession(String username, String password, String id,Boolean cek){
 // Storing login value as TRUE
         if(cek){
             mEditor.putBoolean(IS_LOGIN, true);
@@ -46,6 +46,7 @@ public class SessionManagement {
 //        mEditor.putString(KEY_ID, id_user.toString());
         mEditor.putString(KEY_Username, username.toString());
         mEditor.putString(KEY_password, password.toString());
+        mEditor.putString(KEY_ID, id.toString());
 
         mEditor.commit();
     }
@@ -92,6 +93,10 @@ public class SessionManagement {
 
     public String getPassword(){
         return mSharedPreference.getString("password",null);
+    }
+
+    public String getKeyId(){
+        return mSharedPreference.getString("id_user",null);
     }
 
 }

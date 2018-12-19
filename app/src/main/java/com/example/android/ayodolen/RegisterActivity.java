@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
         username = findViewById(R.id.inputUsername);
         pwd = findViewById(R.id.inputPasswd);
         register = findViewById(R.id.btnRegister);
-        login = findViewById(R.id.lbPunyaakun);
+        login = findViewById(R.id.linkMasuk);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
 
@@ -64,28 +64,37 @@ public class RegisterActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Call<RegistrasiUser> newUser = mApiInterface.registrasiUser( username.getText().toString(),
-                        pwd.getText().toString(), nama.getText().toString());
 
+                if(username.getText().toString().length() == 0 || pwd.getText().toString().length() == 0
+                        || nama.getText().toString().length() == 0){
+                    Toast.makeText(getApplicationContext(),"Data tidak boleh kosong",Toast.LENGTH_SHORT).show();
+                }else{
 
-                newUser.enqueue(new Callback<RegistrasiUser>() {
-                    @Override
-                    public void onResponse(Call<RegistrasiUser> call, Response<RegistrasiUser> response) {
-                        if(response.body().getStatus().equals("gagal")){
-                            Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
+                    Call<RegistrasiUser> newUser = mApiInterface.registrasiUser( username.getText().toString(),
+                            pwd.getText().toString(), nama.getText().toString());
+
+                    newUser.enqueue(new Callback<RegistrasiUser>() {
+                        @Override
+                        public void onResponse(Call<RegistrasiUser> call, Response<RegistrasiUser> response) {
+                            if(response.body().getStatus().equals("gagal")){
+                                Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
 //                        Toast.makeText(getApplicationContext(),"Berhasil Mendaftar",Toast.LENGTH_SHORT).show();
 //                        finish();
-                    }
+                        }
 
-                    @Override
-                    public void onFailure(Call<RegistrasiUser> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(),"error "+t,Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<RegistrasiUser> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(),"error "+t,Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+
+
 
 
 
