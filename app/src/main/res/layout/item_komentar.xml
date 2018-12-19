@@ -22,7 +22,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="3dp"
-        app:cardBackgroundColor="@color/colorLightBlue">
+        app:cardBackgroundColor="@color/colorWhite">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -37,13 +37,13 @@
                 android:text="Yahya Dwi Pradika"
                 android:textSize="15dp"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorBlue"/>
 
             <TextView
                 android:id="@+id/tv_komentar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="dasdsadasdasd"/>
+                android:text="Ini komentar"/>
 
             <TextView
                 android:id="@+id/tv_waktu"

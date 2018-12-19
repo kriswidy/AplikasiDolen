@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
         username = findViewById(R.id.inputUsername);
         pwd = findViewById(R.id.inputPasswd);
         register = findViewById(R.id.btnRegister);
-        login = findViewById(R.id.lbPunyaakun);
+        login = findViewById(R.id.linkMasuk);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
 
