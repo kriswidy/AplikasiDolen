@@ -23,7 +23,7 @@ public class DetailWisataActivity extends AppCompatActivity {
     ImageView img;
     ImageView imgWisata;
     FloatingActionButton btnMaps;
-    String dsk;
+    String dsk, id_wisata;
 
     private SectionsPageAdapter mSectionsPageAdapter;
 
@@ -40,6 +40,7 @@ public class DetailWisataActivity extends AppCompatActivity {
         img = findViewById(R.id.imgDetailWisata);
         Intent i = getIntent();
 
+        id_wisata = Integer.toString(i.getIntExtra("id_wisata", 0));
         String nama     = i.getStringExtra("nama_wisata");
         String alamt   = i.getStringExtra("alamat");
         dsk      = i.getStringExtra("deskripsi");
@@ -98,7 +99,7 @@ public class DetailWisataActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(DeskripsiFragment.newInstance(dsk), "Deskripsi");
-        adapter.addFragment(new KomentarFragment(), "Komentar");
+        adapter.addFragment(KomentarFragment.newInstance(id_wisata), "Komentar");
 
         viewPager.setAdapter(adapter);
     }
