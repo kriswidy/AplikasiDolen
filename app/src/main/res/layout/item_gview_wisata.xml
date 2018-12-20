@@ -19,15 +19,15 @@
 
         <TextView
             android:id="@+id/tvGridWisata"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imgGridWisata"
-            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:text="Gunung Arjuna"
+            android:textColor="@color/colorBlack"
             android:textSize="18dp"
-            android:text="Gunung Arjuna"/>
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
